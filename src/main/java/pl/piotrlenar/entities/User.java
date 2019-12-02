@@ -11,6 +11,8 @@ import pl.piotrlenar.model.UserDto;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -39,6 +41,9 @@ public class User {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updated;
+
+    @ManyToMany(mappedBy = "users")
+    private List<Project> projects = new ArrayList<>();
 
 
     public User(UserDto userDto) {
