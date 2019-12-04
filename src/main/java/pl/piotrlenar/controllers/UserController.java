@@ -56,7 +56,7 @@ public class UserController {
 
     @PostMapping("/login")
     public String loginPost(UserDto loginData, Model m, HttpSession s) {
-        User user = this.userRepository.findByEmail(loginData.getEmail());
+        User user = this.userRepository.findByUsername(loginData.getUsername());
         if(user==null){
             m.addAttribute("user", loginData);
             m.addAttribute("msg", "User not found");
@@ -71,7 +71,7 @@ public class UserController {
 
         s.setAttribute("loggedInUser", user);
 
-        return "redirect:/";
+        return "manageProject";
     }
 
     @GetMapping("/logout")

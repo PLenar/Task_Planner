@@ -10,57 +10,57 @@
 <%@ include file="/WEB-INF/views/jspf/header.jspf"%>
 <%@ include file="/WEB-INF/views/jspf/main-menu.jspf"%>
 <div>
-    <h2>Manage</h2>
+    <h2>Zarządzanie projektami</h2>
 </div>
 
 <div>
     <table>
         <tbody>
         <tr>
-            <td>Project</td>
+            <td>Projekt</td>
             <br>
             <td>
                 <a href="project/add">
-                    <button>Add</button>
+                    <button>Dodaj</button>
                 </a>
             </td>
             <br>
 
             <td>
                 <a href="project/all">
-                    <button>All Projects</button>
+                    <button>Wszystkie projekty</button>
                 </a>
             </td>
             <br>
         </tr>
         <tr>
-            <td>Task</td>
+            <td>Zadania</td>
             <br>
             <td>
                 <a href="task/add">
-                    <button>Add</button>
+                    <button>Dodaj</button>
                 </a>
             </td>
             <br>
             <td>
                 <a href="task/all">
-                    <button>All Tasks</button>
+                    <button>Wszystkie zadania</button>
                 </a>
             </td>
             <br>
         </tr>
         <tr>
-            <td>Comments</td>
+            <td>Komentarze</td>
             <br>
             <td>
                 <a href="comment/add">
-                    <button>Add</button>
+                    <button>Dodaj</button>
                 </a>
             </td>
             <br>
             <td>
                 <a href="comment/all">
-                    <button>All Comments</button>
+                    <button>Wszystkie komentarze</button>
                 </a>
             </td>
             <br>
