@@ -29,7 +29,7 @@ public class Project {
 
     @NotBlank
     @Column
-    private String progressComment;
+    private Integer progressStatus;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime created;

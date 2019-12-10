@@ -9,36 +9,56 @@
 <body>
 <%@ include file="/WEB-INF/views/jspf/header.jspf"%>
 <%@ include file="/WEB-INF/views/jspf/main-menu.jspf"%>
+
 <div>
     <h2>Projekty</h2>
 </div>
+
 <div>
     <table>
-        <tbody>
+        <thead>
         <tr>
-            <td>Nazwa</td>
-            <td>Opis</td>
-            <td>Status</td>
-            <td>Data utworzenia</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <th>Szczegóły</th>
+            <th>Nazwa</th>
+            <th>Opis</th>
+            <th>Status</th>
+            <th>Data utworzenia</th>
+            <th>Data ostatniej edycji</th>
+            <th>Edytuj</th>
+            <th>Usuń</th>
         </tr>
-        <c:forEach items="${projects}" var="project">
+        </thead>
+
+        <tbody>
+        <c:forEach var="project" items="${allProjects}">
             <tr>
+                <td>
+                    <form action="details/${project.id}" method="get">
+                        <button type="submit">Pokaż zadania</button>
+                    </form>
+                </td>
                 <td>${project.name}</td>
+                <br>
                 <td>${project.description}</td>
-                <td>${project.progressComment}</td>
+                <br>
+                <td>${project.progressStatus}</td>
+                <br>
                 <td>${project.created}</td>
+                <br>
+                <td>${project.updated}</td>
+                <br>
                 <td>
-                    <a href="user/project/edit">
-                        <button>Edytuj</button>
-                    </a>
+                    <form action="edit/${project.id}" method="get">
+                        <button type="submit">Edytuj</button>
+                    </form>
                 </td>
+                <br>
                 <td>
-                    <a href="user/project/delete">
-                        <button>Usuń</button>
-                    </a>
+                    <form action="delete/${project.id}" method="post">
+                        <button type="submit">Usuń</button>
+                    </form>
                 </td>
+                <br>
             </tr>
         </c:forEach>
         </tbody>
