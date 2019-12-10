@@ -8,8 +8,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -29,7 +29,7 @@ public class Task {
     private String description;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date deadline;
+    private LocalDate deadline;
 
     @Column
     @Max(10)
