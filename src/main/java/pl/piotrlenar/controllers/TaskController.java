@@ -6,7 +6,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.piotrlenar.entities.Project;
 import pl.piotrlenar.entities.Task;
-import pl.piotrlenar.repositories.CommentRepository;
 import pl.piotrlenar.repositories.ProjectRepository;
 import pl.piotrlenar.repositories.TaskRepository;
 
@@ -20,12 +19,10 @@ import java.util.List;
 public class TaskController {
 
     private final TaskRepository taskRepository;
-    private final CommentRepository commentRepository;
     private final ProjectRepository projectRepository;
 
-    public TaskController(TaskRepository taskRepository, CommentRepository commentRepository, ProjectRepository projectRepository) {
+    public TaskController(TaskRepository taskRepository, ProjectRepository projectRepository) {
         this.taskRepository = taskRepository;
-        this.commentRepository = commentRepository;
         this.projectRepository = projectRepository;
     }
 

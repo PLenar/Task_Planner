@@ -3,12 +3,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <%@ include file="/WEB-INF/views/jspf/head-config.jspf"%>
+    <%@ include file="/WEB-INF/views/jspf/head-config.jspf" %>
     <title>Szczegóły projektu</title>
 </head>
 <body>
-<%@ include file="/WEB-INF/views/jspf/header.jspf"%>
-<%@ include file="/WEB-INF/views/jspf/main-menu.jspf"%>
+<%@ include file="/WEB-INF/views/jspf/header.jspf" %>
+<%@ include file="/WEB-INF/views/jspf/main-menu.jspf" %>
 <div>
     <h2>Szczegóły projektu</h2>
 </div>
@@ -35,15 +35,24 @@
                 <td><c:out value="${task.description}"/></td>
                 <td><c:out value="${task.deadline}"/></td>
                 <td><c:out value="${task.priority}"/></td>
-                <td>
-                    <form action="/user/comment/showComments/${task.id}" method="get">
-                        <button type="submit">Pokaż komentarze</button>
-                    </form>
-                </td>
+            <tr>
+                <div>
+                    Comment: <textarea rows="3" col="60" id="commentBody"></textarea>
+                    <input type="button" id="addComment" value="Dodaj">
+                        <%--<form action="/user/comment/showComments/${task.id}" method="get">--%>
+                        <%--<button type="submit">Pokaż komentarze</button>--%>
+                        <%--</form>--%>
+                </div>
+                <div id="container">
+
+                </div>
+            </tr>
             </tr>
         </c:forEach>
     </table>
 </div>
-<%@ include file="/WEB-INF/views/jspf/footer.jspf"%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/comments.js"></script>
+<%@ include file="/WEB-INF/views/jspf/footer.jspf" %>
 </body>
 </html>

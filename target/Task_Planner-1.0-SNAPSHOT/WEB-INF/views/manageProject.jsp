@@ -20,14 +20,14 @@
             <td>Projekt</td>
             <br>
             <td>
-                <a href="project/add">
+                <a href="/user/project/add">
                     <button>Dodaj</button>
                 </a>
             </td>
             <br>
 
             <td>
-                <a href="project/all">
+                <a href="/user/project/all">
                     <button>Wszystkie projekty</button>
                 </a>
             </td>
@@ -37,34 +37,34 @@
             <td>Zadania</td>
             <br>
             <td>
-                <a href="task/add">
+                <a href="user/task/add">
                     <button>Dodaj</button>
                 </a>
             </td>
             <br>
             <td>
-                <a href="task/all">
+                <a href="user/task/all">
                     <button>Wszystkie zadania</button>
                 </a>
             </td>
             <br>
         </tr>
-        <tr>
-            <td>Komentarze</td>
-            <br>
-            <td>
-                <a href="comment/add">
-                    <button>Dodaj</button>
-                </a>
-            </td>
-            <br>
-            <td>
-                <a href="comment/all">
-                    <button>Wszystkie komentarze</button>
-                </a>
-            </td>
-            <br>
-        </tr>
+        <%--<tr>--%>
+            <%--<td>Komentarze</td>--%>
+            <%--<br>--%>
+            <%--<td>--%>
+                <%--<a href="comment/add">--%>
+                    <%--<button>Dodaj</button>--%>
+                <%--</a>--%>
+            <%--</td>--%>
+            <%--<br>--%>
+            <%--<td>--%>
+                <%--<a href="comment/all">--%>
+                    <%--<button>Wszystkie komentarze</button>--%>
+                <%--</a>--%>
+            <%--</td>--%>
+            <%--<br>--%>
+        <%--</tr>--%>
         </tbody>
     </table>
 </div>

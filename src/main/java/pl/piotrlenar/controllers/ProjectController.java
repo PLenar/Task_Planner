@@ -1,5 +1,6 @@
 package pl.piotrlenar.controllers;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RequestMapping("/user/project")
+@Controller
 public class ProjectController {
 
     private final ProjectRepository projectRepository;
