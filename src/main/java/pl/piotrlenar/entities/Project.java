@@ -3,9 +3,11 @@ package pl.piotrlenar.entities;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +29,7 @@ public class Project {
     @Column
     private String description;
 
-    @NotBlank
+    @NotNull
     @Column
     private Integer progressStatus;
 
@@ -37,7 +39,8 @@ public class Project {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updated;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.MERGE,
+            fetch = FetchType.EAGER)
     private List<User> users = new ArrayList<>();
 
     @PrePersist

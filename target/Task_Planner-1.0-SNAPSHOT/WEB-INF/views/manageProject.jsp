@@ -37,13 +37,13 @@
             <td>Zadania</td>
             <br>
             <td>
-                <a href="user/task/add">
+                <a href="/user/task/add">
                     <button>Dodaj</button>
                 </a>
             </td>
             <br>
             <td>
-                <a href="user/task/all">
+                <a href="/user/task/all">
                     <button>Wszystkie zadania</button>
                 </a>
             </td>

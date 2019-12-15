@@ -6,9 +6,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.piotrlenar.entities.Project;
 import pl.piotrlenar.entities.Task;
+import pl.piotrlenar.entities.User;
 import pl.piotrlenar.repositories.ProjectRepository;
 import pl.piotrlenar.repositories.TaskRepository;
+import pl.piotrlenar.repositories.UserRepository;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,13 +22,25 @@ public class ProjectController {
 
     private final ProjectRepository projectRepository;
     private final TaskRepository taskRepository;
+    private final UserRepository userRepository;
 
-    public ProjectController(ProjectRepository projectRepository, TaskRepository taskRepository) {
+    public ProjectController(ProjectRepository projectRepository, TaskRepository taskRepository, UserRepository userRepository) {
         this.projectRepository = projectRepository;
         this.taskRepository = taskRepository;
+        this.userRepository = userRepository;
     }
 
-    @ModelAttribute("progressStatus")
+    @ModelAttribute("loggedInUser")
+    public void getLoggedUser(HttpSession s, Model model){
+       model.addAttribute("loggedInUser", s.getAttribute("loggedInUser"));
+    }
+
+    @ModelAttribute("users")
+    public List<User> getUsers(){
+        return userRepository.findAll();
+    }
+
+    @ModelAttribute("progress")
     public List<Integer> progress() {
         List list = new ArrayList();
         for (int i = 0; i <= 100; i++) {
@@ -33,6 +48,12 @@ public class ProjectController {
         }
         return list;
     }
+
+    @ModelAttribute("allProjects")
+    public List<Project> getAllProjects(){
+        return projectRepository.findAll();
+    }
+
 
     @GetMapping("/details/{projectId}")
     public String projectDetails(Model model, @PathVariable Long projectId) {
@@ -55,12 +76,12 @@ public class ProjectController {
 
     @PostMapping("/add")
     public String processProject(@Valid @ModelAttribute Project project, BindingResult br, Model m) {
-        if (!br.hasErrors()) {
+        if (br.hasErrors()) {
             m.addAttribute("project", new Project());
-            return "project-form";
+            return "redirect: /add";
         }
         projectRepository.save(project);
-        return "manageProject";
+        return "redirect: /user/project/all";
     }
 
     @GetMapping("/edit/{id}")

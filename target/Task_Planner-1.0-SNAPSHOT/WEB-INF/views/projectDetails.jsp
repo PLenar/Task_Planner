@@ -35,8 +35,10 @@
                 <td><c:out value="${task.description}"/></td>
                 <td><c:out value="${task.deadline}"/></td>
                 <td><c:out value="${task.priority}"/></td>
+            </tr>
             <tr>
                 <div>
+                    User: <input type="text" id="loggedInUser" value="${loggedInUser.username}">
                     Comment: <textarea rows="3" col="60" id="commentBody"></textarea>
                     <input type="button" id="addComment" value="Dodaj">
                         <%--<form action="/user/comment/showComments/${task.id}" method="get">--%>
@@ -47,12 +49,11 @@
 
                 </div>
             </tr>
-            </tr>
         </c:forEach>
     </table>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="js/comments.js"></script>
+<script src="/js/comments.js" type="text/javascript"></script>
 <%@ include file="/WEB-INF/views/jspf/footer.jspf" %>
 </body>
 </html>

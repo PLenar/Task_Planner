@@ -1,8 +1,3 @@
-function render(data){
-    var html = "<div class'commentBox'><div class='laftPanelImg'><img src='https://libertv.com/wp-content/uploads/2018/03/user-avatar-placeholder-1.png' /></div><div class='rightPanel'<span>"+data.name+"</span><div class='date-cell'>"+data.date+"</div><p>"+data.body+"</p></div><div class='clear'></div> </div>"
-}
-
-
 $(document).ready(function() {
 var comment = [];
 
@@ -20,7 +15,7 @@ for (var i = 0;i<comment.length; i++){
         today = mm + '/' + dd + '/' + yyyy;
 
         var addObj = {
-            "name": $(loggedInUser.username).val(),
+            "name": $('#loggedInUser').val(),
             "date": today,
             "body": $('#commentBody').val()
         }
@@ -29,3 +24,8 @@ for (var i = 0;i<comment.length; i++){
         
     });
 });
+
+function render(data){
+    var html = "<div class'commentBox'><div class='leftPanelImg'><img src='https://libertv.com/wp-content/uploads/2018/03/user-avatar-placeholder-1.png' /></div><div class='rightPanel'<span>"+data.name+"</span><div class='date-cell'>"+data.date+"</div><p>"+data.body+"</p></div><div class='clear'></div> </div>"
+    $('#container').append(html);
+};

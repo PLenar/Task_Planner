@@ -41,7 +41,7 @@
                 <br>
                 <td>${project.description}</td>
                 <br>
-                <td>${project.progressStatus}</td>
+                <td>${project.progressStatus} %</td>
                 <br>
                 <td>${project.created}</td>
                 <br>

@@ -21,12 +21,12 @@
         <p><form:errors path="description"/></p>
     </div>
     <div>
-        <p><label>Użytkownik: <form:select path="user" items="${users}" itemValue="id" itemLabel="firstName"/></label>
+        <p><label>Użytkownik: <form:select path="users" items="${users}" itemValue="id" itemLabel="username"/></label>
         </p>
-        <p><form:errors path="user"/></p>
+        <p><form:errors path="users"/></p>
     </div>
     <div>
-        <p><label>Status: <form:select path="progressStatus" items="${progress}" itemValue="id" itemLabel="status"/></label></p>
+        <p><label>Status: <form:select path="progressStatus" items="${progress}"/> % </label></p>
         <p><form:errors path="progressStatus"/></p>
     </div>
     <div>

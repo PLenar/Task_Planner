@@ -26,6 +26,7 @@ public class TaskController {
         this.projectRepository = projectRepository;
     }
 
+
     @ModelAttribute("dateNow")
     public LocalDate getDate() {
         return LocalDate.now();

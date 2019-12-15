@@ -2,6 +2,7 @@ package pl.piotrlenar.entities;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.validator.constraints.Email;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -42,7 +43,10 @@ public class User {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updated;
 
-    @ManyToMany(mappedBy = "users")
+    @ToString.Exclude
+    @ManyToMany(mappedBy = "users",
+             cascade = CascadeType.MERGE,
+            fetch = FetchType.EAGER)
     private List<Project> projects = new ArrayList<>();
 
 
